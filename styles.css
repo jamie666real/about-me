@@ -1,0 +1,213 @@
+:root {
+  /* Color Palette */
+  --bg-dark: #0a0b10;
+  --bg-card: #12141c;
+  --primary: #6366f1;       /* Indigo Accent */
+  --secondary: #a855f7;     /* Purple Accent */
+  --neon-cyan: #00f3ff;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+
+  /* Animation Timings */
+  --transition-fast: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-cool: 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Base Page Setup */
+body {
+  margin: 0;
+  background-color: var(--bg-dark);
+  font-family: system-ui, -apple-system, sans-serif;
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. FULL SCREEN LOADING SCREEN (Curtain & Spinner)
+   ========================================================================== */
+.loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-card);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  /* Automatically exits after a 2-second simulated delay */
+  animation: exitCurtain 0.8s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+  animation-delay: 2s; 
+}
+
+.loader-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  border-top-color: var(--primary);
+  animation: spin 1s infinite linear;
+}
+
+.loader-spinner::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes exitCurtain {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100%); visibility: hidden; }
+}
+
+/* ==========================================================================
+   3. NAVIGATION MENU (Magnetic Expanding Underline)
+   ========================================================================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: rgba(18, 20, 28, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 1rem;
+  position: relative;
+  padding: 8px 0;
+  transition: color var(--transition-fast);
+}
+
+.nav-links a:hover {
+  color: var(--text-main);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  transition: width var(--transition-cool), left var(--transition-cool);
+  border-radius: 2px;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* ==========================================================================
+   4. FUTURISTIC NEON GLOW BUTTON
+   ========================================================================== */
+.neon-btn {
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background: #111;
+  border: 2px solid var(--neon-cyan);
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+}
+
+.neon-btn:hover {
+  color: #111;
+  background: var(--neon-cyan);
+  box-shadow: 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-cyan);
+  animation: neonPulse 1.5s infinite alternate;
+}
+
+@keyframes neonPulse {
+  0% {
+    box-shadow: 0 0 15px var(--neon-cyan), 0 0 30px var(--neon-cyan);
+  }
+  100% {
+    box-shadow: 0 0 25px var(--neon-cyan), 0 0 60px var(--neon-cyan), 0 0 80px var(--neon-cyan);
+  }
+}
+
+/* ==========================================================================
+   5. SMOOTH REVEAL TEXT (Slide & Fade)
+   ========================================================================== */
+.reveal-container {
+  overflow: hidden;
+}
+
+.reveal-text {
+  font-size: 2.5rem;
+  margin: 0;
+  animation: slideFadeUp 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes slideFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   6. GLASSMORPHISM CARD TILT & FLOAT
+   ========================================================================== */
+.cool-card {
+  width: 300px;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  transition: transform 0.5s cubic-bezier(0.2, 1, 0.3, 1), box-shadow 0.5s ease;
+}
+
+.cool-card:hover {
+  transform: translateY(-10px) rotateX(4deg) rotateY(-4deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================================================
+   7. SEAMLESS ROTATING BACKGROUND GRADIENT
+   ========================================================================== */
+.animated-bg {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradientMovement 15s ease infinite;
+}
+
+@keyframes gradientMovement {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

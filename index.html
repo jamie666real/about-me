@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me | Creative Developer</title>
+  <!-- Linking your unified styles.css file -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    /* Custom layouts for the About Me presentation layout */
+    .portfolio-container {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 100px;
+    }
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-top: 40px;
+    }
+    @media (min-width: 768px) {
+      .hero-layout { grid-template-columns: 1.5fr 1fr; }
+    }
+    .grid-3-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .skill-badge {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-muted);
+    }
+    .section-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--primary);
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Component 2: Full Screen Loading Screen -->
+  <div class="loader-wrapper">
+    <div class="loader-spinner"></div>
+  </div>
+
+  <!-- Component 3: Navigation Menu -->
+  <nav class="navbar">
+    <div class="logo">
+      <h3 style="margin: 0; letter-spacing: 1px;">ALEX<span style="color: var(--primary);">.DEV</span></h3>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Featured Work</a></li>
+      <li><a href="#contact">Connect</a></li>
+    </ul>
+  </nav>
+
+  <!-- Portfolio Page Content -->
+  <main class="portfolio-container">
+
+    
+    <section id="about" class="hero-layout">
+      <div>
+        <div class="section-label">Hello World, I'm Alex</div>
+        <!-- Component 5: Smooth Reveal Text -->
+        <div class="reveal-container">
+          <h1 class="reveal-text" style="font-size: 3rem; line-height: 1.1; margin-bottom: 20px;">
+            Building digital spaces that merge art and technology.
+          </h1>
+        </div>
+        <p style="color: var(--text-muted); line-height: 1.7; font-size: 1.1rem; max-width: 600px;">
+          I am a front-end engineer and UI/UX developer dedicated to building fluid, human-centric web applications. By pairing clean code architecture with micro-interactions, I turn conceptual designs into interactive realities.
+        </p>
+        <div class="skill-tags">
+          <span class="skill-badge">TypeScript</span>
+          <span class="skill-badge">React & Next.js</span>
+          <span class="skill-badge">CSS Architecture</span>
+          <span class="skill-badge">UI/UX Animation</span>
+        </div>
+      </div>
+      
+      <!-- Component 7: Seamless Rotating Background Gradient (Serving as a placeholder avatar/abstract art) -->
+      <div class="animated-bg" style="height: 320px; width: 100%; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); position: relative; overflow: hidden;">
+        <div style="position: absolute; bottom: 20px; left: 20px;">
+          <h4 style="margin: 0; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">Based in Springdale, AR</h4>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Showcase Section -->
+    <section id="work">
+      <div class="section-label">Selected Projects</div>
+      <h2 style="font-size: 2rem; margin-top: 0; margin-bottom: 40px;">What I've Been Creating</h2>
+      
+      <div class="grid-3-col">
+        <!-- Component 6: Glassmorphism Card (Project 1) -->
+        <div class="cool-card" style="width: auto;">
+          <div style="color: var(--primary); font-weight: bold; margin-bottom: 10px;">01 // E-Commerce Engine</div>
+          <h3 style="margin-top: 0;">Nexus Cart</h3>
+          <p style="color: var(--text-muted); line-height: 1.6; font-size: 0.95rem;">
+            A headless web storefront featuring smooth page state transitions, predictive inventory loading, and modular micro-frontends.
+          </p>
+        </div>
+
+        <!-- Component 6: Glassmorphism Card (Project 2) -->
+        <div class="cool-card" style="width: auto;">
+          <div style="color: var(--secondary); font-weight: bold; margin-bottom: 10px;">02 // Analytics Suite</div>
+          <h3 style="margin-top: 0;">Aura Metrics</h3>
+          <p style="color: var(--text-muted); line-height: 1.6; font-size: 0.95rem;">
+            Real-time data visualization platforms processing thousands of concurrent telemetry webhooks with minimal browser overhead.
+          </p>
+        </div>
+
+        <!-- Component 6: Glassmorphism Card (Project 3) -->
+        <div class="cool-card" style="width: auto;">
+          <div style="color: var(--neon-cyan); font-weight: bold; margin-bottom: 10px;">03 // Creative Lab</div>
+          <h3 style="margin-top: 0;">Voxel Engine</h3>
+          <p style="color: var(--text-muted); line-height: 1.6; font-size: 0.95rem;">
+            An open-source experimental framework exploring fluid WebGL shader interactions mapped explicitly to viewport scrolling loops.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section id="contact" style="background: rgba(255,255,255,0.02); padding: 60px 40px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); text-align: center;">
+      <div class="section-label">Get In Touch</div>
+      <h2 style="font-size: 2.2rem; margin-top: 0; margin-bottom: 15px;">Have an idea cooking?</h2>
+      <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 40px auto; line-height: 1.6;">
+        I'm currently accepting select freelance partnerships and full-time technical development positions. Drop a line to start discussing.
+      </p>
+      <!-- Component 4: Futuristic Neon Glow Button -->
+      <button class="neon-btn" onclick="window.location.href='mailto:hello@example.com'">Say Hello</button>
+    </section>
+
+  </main>
+
+  <footer style="text-align: center; padding: 40px 0; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05);">
+    <p>&copy; 2026 Alex. Engineered with modern pure CSS layout patterns.</p>
+  </footer>
+
+</body>
+</html>
